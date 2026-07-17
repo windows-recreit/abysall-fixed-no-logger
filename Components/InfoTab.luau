@@ -50,20 +50,22 @@ return function(Window)
     local Name, Version = Abysall.Environment.identifyexecutor()
     local Executor = InfoTab:AddRightGroupbox("Executor Info")
     Executor:AddLabel("Name: " .. Name, true)
-	Executor:AddLabel("Version: " .. (Version and Version or "N/A"), true)
+    Executor:AddLabel("Version: " .. (Version and Version or "N/A"), true)
     Executor:AddDivider()
     Executor:AddLabel("Test Result: ", true)
 
     for Index, Result in pairs(Abysall.Environment.Results) do
-		-- fix for veloshitty 💔
-		Result = Result:gsub("<", "(")
-		Result = Result:gsub(">", ")")
-		
+        -- fix for veloshitty 💔
+        Result = Result:gsub("<", "(")
+        Result = Result:gsub(">", ")")
+        
         Executor:AddLabel(Result, true)
     end
--- forgot to remove this , ill add a new one in updates
+
+    -- community layout setup
     local Community = InfoTab:AddLeftGroupbox("Community")
     Community:AddButton("Copy Discord Invite", function()
-	    toclipboard("")
-	    Library:Notify("Failed to copy") -- sorry
-end
+        toclipboard("")
+        Library:Notify("Failed to copy") -- sorry
+    end)
+end -- <--- This final end closes the return function(Window)
