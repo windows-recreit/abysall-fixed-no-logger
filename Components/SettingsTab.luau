@@ -45,31 +45,6 @@ return function(Window)
 			"Linoria"
 		},
 		Default = (Abysall.UILibrary == "Linoria" and 2 or 1),
-		Callback = function(Value)
-			if Abysall.Environment.writefile and Abysall.Environment.readfile then
-				if not Abysall.Environment.isfile("Abysall/UserData.json") then
-					local Data = {
-						TotalExecutions = 0,
-						UILibrary = "Obsidian"
-					}
-					Abysall.Environment.writefile("Abysall/UserData.json", Services.HttpService:JSONEncode(Data))
-				end
-
-				local UserData = Abysall.Environment.readfile("Abysall/UserData.json")
-				local Decoded = Services.HttpService:JSONDecode(UserData)
-				Decoded.UILibrary = Value
-
-				if not Decoded.UILibrary then
-					Decoded.UILibrary = "Obsidian"
-				end
-
-				Abysall.TotalExecutions = Decoded.TotalExecutions
-				Abysall.UILibrary = Decoded.UILibrary
-
-				Abysall.Environment.writefile("Abysall/UserData.json", Services.HttpService:JSONEncode(Decoded))
-			end
-		end
-	})
 	
 	MenuGroup:AddDropdown("DPIDropdown", {
 		Values = { "50%", "75%", "100%", "125%", "150%", "175%", "200%" },
