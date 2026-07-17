@@ -37,7 +37,7 @@ task.wait(1)
 
 local Window = Library:CreateWindow({
     Title = "Abysall Hub",
-    Footer = "dsc.gg/abysallhub",
+    Footer = "abpisal hub",
     NotifySide = "Right",
     ShowCustomCursor = false,
     AutoShow = true,
