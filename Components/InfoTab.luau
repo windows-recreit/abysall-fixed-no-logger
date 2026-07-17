@@ -61,10 +61,9 @@ return function(Window)
 		
         Executor:AddLabel(Result, true)
     end
-
+-- forgot to remove this , ill add a new one in updates
     local Community = InfoTab:AddLeftGroupbox("Community")
     Community:AddButton("Copy Discord Invite", function()
-	    toclipboard("https://dsc.gg/abysallhub")
-	    Library:Notify("Discord invite copied.")
-    end)
+	    toclipboard("")
+	    Library:Notify("Failed to copy") -- sorry
 end
